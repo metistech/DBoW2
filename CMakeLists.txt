@@ -32,6 +32,12 @@ set(DEPENDENCY_INSTALL_DIR ${DEPENDENCY_DIR}/install)
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
+find_package(catkin)
+catkin_package(
+  INCLUDE_DIRS include
+  LIBRARIES ${PROJECT_NAME}
+)
+
 if(BUILD_DBoW2)
   set(LIB_SHARED "SHARED")
   if(WIN32)
